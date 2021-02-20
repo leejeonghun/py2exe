@@ -48,3 +48,46 @@ jobs:
           name: ${{ env.WHEELNAME }}
           path: |
             dist/${{ env.WHEELNAME }}
+
+  test:
+      needs: build
+      name: Test
+      runs-on: windows-2019
+      steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v1
+        with:
+          name: ${{ env.WHEELNAME }}
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'
+          architecture: 'x64'
+
+      - name: Install
+        run: |
+          pip install ${{ env.WHEELNAME }}
+          python -c "import py2exe"
+
+      - name: Test
+        run: |
+          cd tests
+          python maketest.py
+          cd functional
+          runner bundlefiles2_test
+          runner bundlefiles1_test
+          runner bundlefiles0_test
+          runner bundlefiles0_sqlite_test
+          runner bundlefiles0_ssl_test
+          runner numpy_test
+          runner pandas_test
+          runner pycryptodome_test
+          runner tk_test
+          runner sqlite_test
+          runner certifi_test
+          runner certifi_zip_test
+          runner pywin32_test
+          runner requests_test
+          runner zope_interface_test
+          runner ssl_test

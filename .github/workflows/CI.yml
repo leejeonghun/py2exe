@@ -54,10 +54,8 @@ jobs:
       name: Test
       runs-on: windows-2019
       steps:
-      - name: Download artifacts
-        uses: actions/download-artifact@v1
-        with:
-          name: ${{ env.WHEELNAME }}
+      - name: Download all artifacts
+        uses: actions/download-artifact@v2
 
       - name: Setup Python
         uses: actions/setup-python@v2
@@ -67,7 +65,7 @@ jobs:
 
       - name: Install
         run: |
-          pip install ${{ env.WHEELNAME }}
+          pip install (get-item .\py2exe-*-cp37-none-win_amd64.whl).FullName
           python -c "import py2exe"
 
       - name: Test

@@ -35,10 +35,10 @@ jobs:
       - name: Prepare for deployment
         run: |
           dir dist
-          for /r %%f in (dist/*) do @set wheelname=%%~nxf
-          echo %wheelname%
-          for /F "tokens=2 delims='" %%a in ('findstr __version__ py2exe\__init__.py') do @set ver=%%a
-          echo %ver%
+          Get-ChildItem dist -File | Foreach-Object {$Env:wheelname = $_.Name}
+          echo $Env:wheelname
+          $Env:ver = (findstr __version__ .\py2exe\__init__.py).split("'")[1]
+          echo $Env:ver
 
       - name: Deploy
         uses: actions/upload-artifact@v2

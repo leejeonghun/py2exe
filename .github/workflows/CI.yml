@@ -52,22 +52,22 @@ jobs:
           cd tests
           python maketest.py
           cd functional
-          runner bundlefiles2_test
-          runner bundlefiles1_test
-          runner bundlefiles0_test
-          runner bundlefiles0_sqlite_test
-          runner bundlefiles0_ssl_test
-          runner numpy_test
-          runner pandas_test
-          runner pycryptodome_test
-          runner tk_test
-          runner sqlite_test
-          runner certifi_test
-          runner certifi_zip_test
-          runner pywin32_test
-          runner requests_test
-          runner zope_interface_test
-          runner ssl_test
+          .\runner.bat bundlefiles2_test
+          .\runner.bat bundlefiles1_test
+          .\runner.bat bundlefiles0_test
+          .\runner.bat bundlefiles0_sqlite_test
+          .\runner.bat bundlefiles0_ssl_test
+          .\runner.bat numpy_test
+          .\runner.bat pandas_test
+          .\runner.bat pycryptodome_test
+          .\runner.bat tk_test
+          .\runner.bat sqlite_test
+          .\runner.bat certifi_test
+          .\runner.bat certifi_zip_test
+          .\runner.bat pywin32_test
+          .\runner.bat requests_test
+          .\runner.bat zope_interface_test
+          .\runner.bat ssl_test
 
       - name: Deploy
         uses: actions/upload-artifact@v2

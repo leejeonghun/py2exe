@@ -1,8 +1,8 @@
-name: Build
+name: CI
 on: push
 
 jobs:
-  windows:
+  build:
     name: Build
     runs-on: windows-2019
     steps:

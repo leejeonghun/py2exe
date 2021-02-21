@@ -129,6 +129,14 @@ jobs:
           python-version: ${{ matrix.python-version }}
           architecture: ${{ matrix.python-arch }}
 
+      - name: Check Python install
+        run: |
+          which python
+          python --version
+          python -c "import struct; print(struct.calcsize('P') * 8)"
+          which pip
+          pip --version
+
       - name: Prepare for test
         run: |
           $ver = (findstr __version__ .\py2exe\__init__.py).split("'")[1]

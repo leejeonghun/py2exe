@@ -1,3 +1,10 @@
 [
+    {"python-version": "3.6", "python-tag": "cp36", "python-arch": "x86", "plat-name": "win32"},
+    {"python-version": "3.7", "python-tag": "cp37", "python-arch": "x86", "plat-name": "win32"},
+    {"python-version": "3.8", "python-tag": "cp38", "python-arch": "x86", "plat-name": "win32"},
+    {"python-version": "3.9", "python-tag": "cp39", "python-arch": "x86", "plat-name": "win32"},
+    {"python-version": "3.6", "python-tag": "cp36", "python-arch": "x64", "plat-name": "win_amd64"},
     {"python-version": "3.7", "python-tag": "cp37", "python-arch": "x64", "plat-name": "win_amd64"},
+    {"python-version": "3.8", "python-tag": "cp38", "python-arch": "x64", "plat-name": "win_amd64"},
+    {"python-version": "3.9", "python-tag": "cp39", "python-arch": "x64", "plat-name": "win_amd64"},
 ]
